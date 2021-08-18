@@ -16,7 +16,7 @@ tests: tests.o tests_main.o
 tests.o: tests.cpp dinoset.h
 	$(CC) -c tests.cpp
 
-test_main.o: tests_main.cpp
+tests_main.o: tests_main.cpp
 	$(CC) -c tests_main.cpp
 
 clean:
