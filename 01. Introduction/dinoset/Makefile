@@ -1,4 +1,4 @@
-# Archivo para construir la práctiva de DinoSets.
+# Archivo para construir la práctica de DinoSets.
 
 CC = g++
 
