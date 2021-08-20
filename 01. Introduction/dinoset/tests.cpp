@@ -50,11 +50,11 @@ TEST_CASE("test the DinoSet class")
         REQUIRE(c.contains(DinoId::pteranodon));
     }
 
-    // SECTION("test size") {
-    //     REQUIRE(a.size() == 0);
-    //     REQUIRE(b.size() == 2);
-    //     REQUIRE(c.size() == 3);
-    // }
+    SECTION("test size") {
+        REQUIRE(a.size() == 0);
+        REQUIRE(b.size() == 2);
+        REQUIRE(c.size() == 3);
+    }
 
     // SECTION("test is_empty") {
     //     REQUIRE(a.is_empty());

@@ -44,6 +44,30 @@ public:
         return _dino[index];
     }
 
+    int size() const
+    {
+        int result = 0;
+        for (int i = 0; i < total_dinos; ++i) {
+            DinoId id = static_cast<DinoId>(i);
+            if (contains(id)) {
+                ++result;
+            }
+        }
+        return result;
+    }
+
+    DinoSet operator+(const DinoSet& other) const
+    {
+        DinoSet result;
+        for (int i = 0; i < total_dinos; ++i) {
+            DinoId id = static_cast<DinoId>(i);
+            if (contains(id) or other.contains(id)) {
+                result.add(id);
+            }
+        }
+        return result;
+    }
+
 private:
 
     bool _dino[total_dinos] {};
