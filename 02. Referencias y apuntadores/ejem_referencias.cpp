@@ -7,7 +7,7 @@ void swap1(int x, int y)
     y = t;
 }
 
-void swap2(const int &x, const int &y)
+void swap2(int &x, int &y)
 {
     int t = x;
     x = y;
