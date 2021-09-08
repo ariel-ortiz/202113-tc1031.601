@@ -47,7 +47,7 @@ int size(Node *first)
     return count;
 }
 
-// Comlejidad: O(N)
+// Complejidad: O(N)
 int sum(Node *first)
 {
     int total = 0;
@@ -58,7 +58,7 @@ int sum(Node *first)
     return total;
 }
 
-// Comlejidad: O(N)
+// Complejidad: O(N)
 void dup(Node *first)
 {
     while (first != nullptr) {
