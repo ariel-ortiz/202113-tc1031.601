@@ -8,17 +8,14 @@ struct Alumno {
 
 int main()
 {
-    LinkedList<int> lista1;
-    lista1.insert_front(5);
-    lista1.insert_front(4);
-    lista1.insert_front(3);
-    LinkedList<std::string> lista2;
+    LinkedList<int> lista1 {5, 4, 3};
+    LinkedList<std::string> lista2 {"a", "b", "c", "d", "e"};
     LinkedList<double> lista3;
     LinkedList<Alumno> lista4;
     LinkedList<int> lista5;
 
     std::cout << lista1.to_string() << std::endl;
-    std::cout << lista5.to_string() << std::endl;
+    std::cout << lista2.to_string() << std::endl;
 
     return 0;
 }
