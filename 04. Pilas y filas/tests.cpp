@@ -4,21 +4,6 @@
 
 TEST_CASE("test the stacks and queues functions")
 {
-    SECTION("test balanced_brackets") {
-        REQUIRE(balanced_brackets(""));
-        REQUIRE(balanced_brackets("(7)"));
-        REQUIRE(balanced_brackets("[]{}()([]{})"));
-        REQUIRE(balanced_brackets("[({(([[{}][{}][{}]]))})]"));
-        REQUIRE_FALSE(balanced_brackets("{"));
-        REQUIRE_FALSE(balanced_brackets("}"));
-        REQUIRE_FALSE(balanced_brackets("]({})"));
-        REQUIRE_FALSE(balanced_brackets("(((("));
-        REQUIRE_FALSE(balanced_brackets("))))"));
-        REQUIRE_FALSE(balanced_brackets("(]{)[}"));
-        REQUIRE_FALSE(balanced_brackets("[]{}()[]{})([])"));
-        REQUIRE_FALSE(balanced_brackets("[[({(([[{}][{}][{}]]))})]"));
-    }
-
     SECTION("test postfix_evaluation") {
         REQUIRE(postfix_evaluation("42") == 42);
         REQUIRE(postfix_evaluation("20 6 +") == 26);
@@ -50,5 +35,20 @@ TEST_CASE("test the stacks and queues functions")
             std::invalid_argument);
         REQUIRE_THROWS_AS(postfix_evaluation("10 11 + 5 % 13 *"),
             std::invalid_argument);
+    }
+
+    SECTION("test balanced_brackets") {
+        REQUIRE(balanced_brackets(""));
+        REQUIRE(balanced_brackets("(7)"));
+        REQUIRE(balanced_brackets("[]{}()([]{})"));
+        REQUIRE(balanced_brackets("[({(([[{}][{}][{}]]))})]"));
+        REQUIRE_FALSE(balanced_brackets("{"));
+        REQUIRE_FALSE(balanced_brackets("}"));
+        REQUIRE_FALSE(balanced_brackets("]({})"));
+        REQUIRE_FALSE(balanced_brackets("(((("));
+        REQUIRE_FALSE(balanced_brackets("))))"));
+        REQUIRE_FALSE(balanced_brackets("(]{)[}"));
+        REQUIRE_FALSE(balanced_brackets("[]{}()[]{})([])"));
+        REQUIRE_FALSE(balanced_brackets("[[({(([[{}][{}][{}]]))})]"));
     }
 }
