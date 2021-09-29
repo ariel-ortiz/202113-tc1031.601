@@ -3,6 +3,6 @@
 
 int main()
 {
-    std::cout << postfix_evaluation("2 2 +") << std::endl;
+    std::cout << postfix_evaluation("1 % 2 3*") << std::endl;
     return 0;
 }
