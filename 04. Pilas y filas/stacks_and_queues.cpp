@@ -39,7 +39,7 @@ int postfix_evaluation(const std::string& expr)
             or element == "*" or element == "/") {
             if (eval_stack.size() < 2) {
                 throw std::invalid_argument(expr
-                    + " too few operands for operator " + element);
+                    + ": too few operands for operator " + element);
             }
             int b = eval_stack.top();
             eval_stack.pop();
