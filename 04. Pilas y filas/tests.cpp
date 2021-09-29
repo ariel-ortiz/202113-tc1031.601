@@ -37,18 +37,18 @@ TEST_CASE("test the stacks and queues functions")
             std::invalid_argument);
     }
 
-    SECTION("test balanced_brackets") {
-        REQUIRE(balanced_brackets(""));
-        REQUIRE(balanced_brackets("(7)"));
-        REQUIRE(balanced_brackets("[]{}()([]{})"));
-        REQUIRE(balanced_brackets("[({(([[{}][{}][{}]]))})]"));
-        REQUIRE_FALSE(balanced_brackets("{"));
-        REQUIRE_FALSE(balanced_brackets("}"));
-        REQUIRE_FALSE(balanced_brackets("]({})"));
-        REQUIRE_FALSE(balanced_brackets("(((("));
-        REQUIRE_FALSE(balanced_brackets("))))"));
-        REQUIRE_FALSE(balanced_brackets("(]{)[}"));
-        REQUIRE_FALSE(balanced_brackets("[]{}()[]{})([])"));
-        REQUIRE_FALSE(balanced_brackets("[[({(([[{}][{}][{}]]))})]"));
-    }
+    // SECTION("test balanced_brackets") {
+    //     REQUIRE(balanced_brackets(""));
+    //     REQUIRE(balanced_brackets("(7)"));
+    //     REQUIRE(balanced_brackets("[]{}()([]{})"));
+    //     REQUIRE(balanced_brackets("[({(([[{}][{}][{}]]))})]"));
+    //     REQUIRE_FALSE(balanced_brackets("{"));
+    //     REQUIRE_FALSE(balanced_brackets("}"));
+    //     REQUIRE_FALSE(balanced_brackets("]({})"));
+    //     REQUIRE_FALSE(balanced_brackets("(((("));
+    //     REQUIRE_FALSE(balanced_brackets("))))"));
+    //     REQUIRE_FALSE(balanced_brackets("(]{)[}"));
+    //     REQUIRE_FALSE(balanced_brackets("[]{}()[]{})([])"));
+    //     REQUIRE_FALSE(balanced_brackets("[[({(([[{}][{}][{}]]))})]"));
+    // }
 }
