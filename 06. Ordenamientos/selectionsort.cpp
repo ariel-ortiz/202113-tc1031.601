@@ -48,7 +48,8 @@ int main()
     //print_vector(a);
 
     fill_random(a, 100);
-    std::cout << "Ordenado inicialmente: " << std::is_sorted(a.begin(), a.end()) << '\n';
+    std::cout << "Ordenado inicialmente: "
+        << std::is_sorted(a.begin(), a.end()) << '\n';
 
     //print_vector(a);
 
@@ -60,8 +61,10 @@ int main()
             stop - start);
     double total_time = duration.count() / 1000000.0;
 
-    std::cout << "Ordenado finalmente:   " << std::is_sorted(a.begin(), a.end()) << '\n';
-    std::cout << "Tiempo de ejecución: " << total_time << " segundos \n";
+    std::cout << "Ordenado finalmente:   "
+        << std::is_sorted(a.begin(), a.end()) << '\n';
+    std::cout << "Tiempo de ejecución: "
+        << total_time << " segundos \n";
 
     //print_vector(a);
 
