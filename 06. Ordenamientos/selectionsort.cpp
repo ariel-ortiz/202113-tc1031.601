@@ -13,11 +13,11 @@ void selectionsort(std::vector<int>& values)
     for (int i = 0; i < values.size() - 1; ++i) {
         int min_index = i;
         for (int j = i + 1; j < values.size(); ++j) {
-            if (values.at(j) < values.at(min_index)) {
+            if (values[j] < values[min_index]) {
                 min_index = j;
             }
         }
-        std::swap(values.at(i), values.at(min_index));
+        std::swap(values[i], values[min_index]);
     }
 }
 
@@ -41,13 +41,13 @@ void print_vector(std::vector<int> values)
 
 int main()
 {
-    std::vector<int> a(10'000);
+    std::vector<int> a(100'000);
 
     std::cout << std::boolalpha;
 
     //print_vector(a);
 
-    fill_random(a, 100);
+    fill_random(a, max_value);
     std::cout << "Ordenado inicialmente: "
         << std::is_sorted(a.begin(), a.end()) << '\n';
 
