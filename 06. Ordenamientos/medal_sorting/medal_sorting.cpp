@@ -14,7 +14,19 @@ struct Country {
 
 bool compare_function(const Country& a, const Country& b)
 {
-    return a.gold < b.gold;
+    if (a.gold == b.gold) {
+        if (a.silver == b.silver) {
+            if (a.bronze == b.bronze) {
+                return a.name < b.name;
+            } else {
+                return a.bronze > b.bronze;
+            }
+        } else {
+            return a.silver > b.silver;
+        }
+    } else {
+        return a.gold > b.gold;
+    }
 }
 
 int main(int argc, const char* argv[])
@@ -44,7 +56,7 @@ int main(int argc, const char* argv[])
     }
     file.close();
 
-    std::sort(
+    std::stable_sort(
         country_values.begin(),
         country_values.end(),
         compare_function);
