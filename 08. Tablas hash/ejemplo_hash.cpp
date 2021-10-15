@@ -1,5 +1,6 @@
 #include <functional>
 #include <iostream>
+#include <unordered_set>
 
 struct Student {
     const int id;
@@ -23,7 +24,7 @@ namespace std {
          * Addison-Wesley Professional, 2017.
          * Chapter 3, Item 11.
          */
-        std::size_t operator() (const Student& s)
+        std::size_t operator() (const Student& s) const
         {
             std::hash<int> hi;
             std::hash<std::string> hs;
