@@ -69,5 +69,24 @@ int main()
     std::cout << "Hash code:  " << stuhsh(st) << '\n';
     std::cout << "Hash again: " << stuhsh(st) << '\n';
 
+    // La clase Student cuenta con:
+    // 1) Operador == sobrecargado
+    // 2) Una clase epecializada hash para calcular su código hash
+    // Por tanto, objetos de la clase Student pueden ser
+    // contenidos en un unordered_set.
+    std::unordered_set<Student> student_set {
+        {101, "Marta", 95.0},
+        {110, "María", 91.2},
+        {199, "Mateo", 85.3},
+        {202, "Marcos", 72.4},
+        {299, "Lucas", 100.0},
+        {123, "Juan", 98.5},
+    };
+    std::cout << std::boolalpha;
+    std::cout << "Is Lucas in set? "
+        << (student_set.count({299, "Lucas", 100.0}) == 1) << '\n';
+    std::cout << "Is Damián in set? "
+        << (student_set.count({666, "Damián", 66.6}) == 1) << '\n';
+
     return 0;
 }
