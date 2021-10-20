@@ -1,9 +1,14 @@
 #pragma once
 
+#include <stdexcept>
+
 template<typename K, typename T>
 class HashTable {
 
 public:
+
+    HashTable(const HashTable<K, T>&) = delete;
+    HashTable<K, T>& operator=(const HashTable<K, T>&) = delete;
 
     // Complejidad: O(B)
     HashTable(int num_buckets)
@@ -49,6 +54,19 @@ public:
             p = p->next;
         }
         return false;
+    }
+
+    T get(K key) const
+    {
+        int hash = _hash(key);
+        Pair *p = _bucket[hash]->next;
+        while (p != nullptr) {
+            if (key == p->key) {
+                return p->value;
+            }
+            p = p->next;
+        }
+        throw std::invalid_argument("key not found");
     }
 
 private:

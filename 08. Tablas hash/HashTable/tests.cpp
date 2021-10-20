@@ -83,34 +83,34 @@ TEST_CASE("test the HashTable class")
         REQUIRE_FALSE(d.contains_key(-1));
     }
 
-    // SECTION("test get") {
-    //     REQUIRE_THROWS_AS(a.get(0.0), std::invalid_argument);
-    //     REQUIRE_THROWS_AS(a.get(3.1416), std::invalid_argument);
-    //     REQUIRE(a.put(0.0, true));
-    //     REQUIRE(a.put(3.1416, false));
-    //     REQUIRE(a.get(0.0) == true);
-    //     REQUIRE(a.get(3.1416) == false);
-    //     REQUIRE_FALSE(a.put(3.1416, true));
-    //     REQUIRE(a.get(3.1416) == true);
-    //     REQUIRE(b.get("five") == 5);
-    //     REQUIRE_THROWS_AS(b.get("ten"), std::invalid_argument);
-    //     REQUIRE(b.put("ten", 10));
-    //     REQUIRE(b.get("ten") == 10);
-    //     REQUIRE_FALSE(b.put("five", 50));
-    //     REQUIRE(b.get("five") == 50);
-    //     REQUIRE(c.get(19) == "XIX");
-    //     REQUIRE_THROWS_AS(c.get(2'000), std::invalid_argument);
-    //     REQUIRE(c.put(2'000, "MM"));
-    //     REQUIRE(c.get(2'000) == "MM");
-    //     REQUIRE_FALSE(c.put(19, "other"));
-    //     REQUIRE(c.get(19) == "other");
-    //     REQUIRE(d.get(99'999) == 199'997);
-    //     REQUIRE_THROWS_AS(c.get(-1), std::invalid_argument);
-    //     REQUIRE(d.put(-1, -3));
-    //     REQUIRE(d.get(-1) == -3);
-    //     REQUIRE_FALSE(d.put(99'999, 0));
-    //     REQUIRE(d.get(99'999) == 0);
-    // }
+    SECTION("test get") {
+        REQUIRE_THROWS_AS(a.get(0.0), std::invalid_argument);
+        REQUIRE_THROWS_AS(a.get(3.1416), std::invalid_argument);
+        REQUIRE(a.put(0.0, true));
+        REQUIRE(a.put(3.1416, false));
+        REQUIRE(a.get(0.0) == true);
+        REQUIRE(a.get(3.1416) == false);
+        REQUIRE_FALSE(a.put(3.1416, true));
+        REQUIRE(a.get(3.1416) == true);
+        REQUIRE(b.get("five") == 5);
+        REQUIRE_THROWS_AS(b.get("ten"), std::invalid_argument);
+        REQUIRE(b.put("ten", 10));
+        REQUIRE(b.get("ten") == 10);
+        REQUIRE_FALSE(b.put("five", 50));
+        REQUIRE(b.get("five") == 50);
+        REQUIRE(c.get(19) == "XIX");
+        REQUIRE_THROWS_AS(c.get(2'000), std::invalid_argument);
+        REQUIRE(c.put(2'000, "MM"));
+        REQUIRE(c.get(2'000) == "MM");
+        REQUIRE_FALSE(c.put(19, "other"));
+        REQUIRE(c.get(19) == "other");
+        REQUIRE(d.get(99'999) == 199'997);
+        REQUIRE_THROWS_AS(c.get(-1), std::invalid_argument);
+        REQUIRE(d.put(-1, -3));
+        REQUIRE(d.get(-1) == -3);
+        REQUIRE_FALSE(d.put(99'999, 0));
+        REQUIRE(d.get(99'999) == 0);
+    }
 
     // SECTION("test get_or_default") {
     //     REQUIRE(a.get_or_default(0.0, true) == true);
