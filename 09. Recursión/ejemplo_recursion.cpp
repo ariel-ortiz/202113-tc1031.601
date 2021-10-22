@@ -34,7 +34,7 @@ bool is_zero(int n)
 //---------------------------------------------------------
 // Operaciones derivadas
 
-// Complejidad: O(N)
+// Complejidad: O(A)
 int suma(int a, int b)
 {
     if (is_zero(a)) {
@@ -44,8 +44,67 @@ int suma(int a, int b)
     }
 }
 
+// Complejidad: O(B)
+int resta(int a, int b)
+{
+    if (is_zero(b)) {
+        return a;
+    } else {
+        return dec(resta(a, dec(b)));
+    }
+}
+
+// Complejidad: O(A * B)
+int multiplicacion(int a, int b)
+{
+    if (is_zero(a)) {
+        return 0;
+    } else {
+        return suma(b, multiplicacion(dec(a), b));
+    }
+}
+
+// Complejidad: O(min(A, B))
+bool menor_que(int a, int b)
+{
+    if (is_zero(a)) {
+        if (is_zero(b)) {
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        if (is_zero(b)) {
+            return false;
+        } else {
+            return menor_que(dec(a), dec(b));
+        }
+    }
+}
+
+// Complejidad: O([A / B] * [min(A, B) + B])
+int division(int a, int b)
+{
+    if (menor_que(a, b)) {
+        return 0;
+    } else {
+        return inc(division(resta(a, b), b));
+    }
+}
+
+// Complejidad: O([A / B] * [min(A, B) + B])
+int residuo(int a, int b)
+{
+    if (menor_que(a, b)) {
+        return a;
+    } else {
+        return residuo(resta(a, b), b);
+    }
+}
+
 int main()
 {
-    std::cout << suma(3, 5) << '\n';
+    std::cout << std::boolalpha;
+    std::cout << residuo(20, 6) << '\n';
     return 0;
 }
