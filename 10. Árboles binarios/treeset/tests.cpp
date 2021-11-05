@@ -20,6 +20,25 @@ TEST_CASE("test the TreeSet class")
     TreeSet<int> h {8, 4, 12, 2, 6, 1, 5, 3,
         7, 10, 11, 14, 15, 9, 13};
 
+    SECTION("test add") {
+        REQUIRE(a.add("a"));
+        REQUIRE_FALSE(a.add("a"));
+        REQUIRE(b.add("z"));
+        REQUIRE_FALSE(b.add("a"));
+        REQUIRE(c.add("q"));
+        REQUIRE_FALSE(c.add("k"));
+        REQUIRE(d.add("h"));
+        REQUIRE_FALSE(d.add("b"));
+        REQUIRE(e.add(34));
+        REQUIRE_FALSE(e.add(19));
+        REQUIRE(f.add(9));
+        REQUIRE_FALSE(f.add(4));
+        REQUIRE(g.add(16));
+        REQUIRE_FALSE(g.add(7));
+        REQUIRE(h.add(0));
+        REQUIRE_FALSE(h.add(6));
+    }
+
     SECTION("test size") {
         REQUIRE(0 == a.size());
         REQUIRE(1 == b.size());
