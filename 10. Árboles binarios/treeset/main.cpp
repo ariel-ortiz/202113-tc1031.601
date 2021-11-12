@@ -11,7 +11,7 @@ int main()
 {
     TreeSet<int> t {10, 5, 15, 13, 20, 14};
 
-    t.inorder(visita);
+    t.levelorder(visita);
 
     std::cout << '\n';
 

@@ -2,14 +2,17 @@
 
 #include <functional>
 #include <initializer_list>
+#include <queue>
 
 template<typename T>
 class TreeSet {
 
 public:
 
+    // Complejidad: O(1)
     TreeSet() {}
 
+    // Complejidad: O(N log N)
     TreeSet(std::initializer_list<T> args)
     {
         for (T value : args) {
@@ -17,11 +20,13 @@ public:
         }
     }
 
+    // Complejidad: O(N)
     ~TreeSet()
     {
         _destroy(_root);
     }
 
+    // Complejidad: O(log N)
     bool add(T value)
     {
         if (_root == nullptr) {
@@ -54,9 +59,35 @@ public:
         }
     }
 
+    // Complejidad: O(log N)
+    bool contains(T value) const
+    {
+        return _contains(value, _root);
+    }
+
+    // Complejidad: O(N)
     void inorder(std::function<void(T)> fn) const
     {
         _inorder(fn, _root);
+    }
+
+    // Complejidad: O(N)
+    void levelorder(std::function<void(T)> fn) const
+    {
+        std::queue<Node*> queue;
+
+        queue.push(_root);
+
+        while (not queue.empty()) {
+            Node* p = queue.front();
+            queue.pop();
+
+            if (p != nullptr) {
+                fn(p->value);
+                queue.push(p->left);
+                queue.push(p->right);
+            }
+        }
     }
 
 private:
@@ -74,6 +105,19 @@ private:
             _destroy(p->left);
             _destroy(p->right);
             delete p;
+        }
+    }
+
+    bool _contains(T value, Node* p) const
+    {
+        if (p == nullptr) {
+            return false;
+        } else if (value == p->value) {
+            return true;
+        } else if (value < p->value) {
+            return _contains(value, p->left);
+        } else {
+            return _contains(value, p->right);
         }
     }
 
