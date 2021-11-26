@@ -35,6 +35,8 @@ void add_edge(
     connections[vertex_2].push_back(Edge {vertex_1, weight});
 }
 
+
+// Complejidad: O(V^2)
 void dijkstra(Graph& connections, std::string start)
 {
     std::queue<std::string> queue;
